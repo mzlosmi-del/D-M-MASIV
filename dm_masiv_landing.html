@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D&M Masiv — Stolarija po meri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F5F0E8;
+    --sand: #E8DDC8;
+    --oak: #C4A882;
+    --oak-deep: #9B7D56;
+    --bark: #5C3D2E;
+    --charcoal: #2A2118;
+    --warm-white: #FAF7F2;
+    --muted: #8A7968;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196, 168, 130, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .logo-mark {
+    width: 42px; height: 42px;
+    border: 1.5px solid var(--oak);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+
+  .logo-mark::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 0.5px solid var(--oak);
+    opacity: 0.4;
+  }
+
+  .logo-mark span {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--bark);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text {
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+
+  .logo-text strong {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.08em;
+  }
+
+  .logo-text small {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  nav ul {
+    display: flex; list-style: none; gap: 2.5rem;
+  }
+
+  nav a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--bark); }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--warm-white) !important;
+    background: var(--bark);
+    padding: 0.6rem 1.4rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--charcoal); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 4rem;
+    position: relative;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 15%; bottom: 15%; right: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--oak) 30%, var(--oak) 70%, transparent);
+    opacity: 0.3;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--oak-deep);
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--oak-deep);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--oak-deep);
+  }
+
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 400px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; gap: 2rem;
+  }
+
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--bark);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--charcoal); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--oak-deep);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+    padding-bottom: 2px;
+  }
+
+  .btn-ghost:hover { border-color: var(--oak-deep); }
+
+  .hero-right {
+    position: relative;
+    background: var(--sand);
+    overflow: hidden;
+  }
+
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #E8DDC8 0%, #D4C5A9 40%, #C4A882 100%);
+    position: relative;
+  }
+
+  .hero-img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(92,61,46,0.04) 40px, rgba(92,61,46,0.04) 41px),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(92,61,46,0.04) 40px, rgba(92,61,46,0.04) 41px);
+  }
+
+  .wood-icon {
+    width: 80px; height: 80px;
+    border: 1.5px solid rgba(92,61,46,0.25);
+    position: relative;
+    transform: rotate(12deg);
+  }
+
+  .wood-icon::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 0.5px solid rgba(92,61,46,0.15);
+  }
+
+  .hero-img-placeholder p {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(92,61,46,0.45);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 3rem; left: -1.5rem;
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    padding: 1.2rem 1.5rem;
+    min-width: 180px;
+  }
+
+  .hero-badge strong {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--oak-deep);
+    display: block;
+    line-height: 1;
+  }
+
+  .hero-badge span {
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── SECTION SHARED ── */
+  section { scroll-margin-top: 80px; }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--oak-deep);
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px; height: 1px;
+    background: var(--oak-deep);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+  }
+
+  h2 em { font-style: italic; color: var(--oak-deep); }
+
+  /* ── PRODUCTS ── */
+  .products {
+    padding: 7rem 4rem;
+    background: var(--cream);
+  }
+
+  .products-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(196, 168, 130, 0.3);
+  }
+
+  .product-card {
+    background: var(--cream);
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+
+  .product-card:hover { z-index: 2; transform: scale(1.02); }
+
+  .product-img {
+    height: 260px;
+    background: linear-gradient(135deg, var(--sand) 0%, #BFA880 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-img::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 6px,
+      rgba(92,61,46,0.04) 6px, rgba(92,61,46,0.04) 7px
+    );
+  }
+
+  .product-img-icon {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    color: rgba(92,61,46,0.18);
+    font-style: italic;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .product-tag {
+    position: absolute; top: 1rem; left: 1rem;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: rgba(92,61,46,0.7);
+    padding: 0.3rem 0.7rem;
+    backdrop-filter: blur(4px);
+  }
+
+  .product-info {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(196,168,130,0.3);
+  }
+
+  .product-info h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.4rem;
+  }
+
+  .product-info p {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 7rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+    height: 520px;
+  }
+
+  .about-img-main {
+    position: absolute;
+    top: 0; left: 0; right: 2rem; bottom: 2rem;
+    background: linear-gradient(145deg, #C4A882 0%, #9B7D56 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .about-img-accent {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 180px; height: 180px;
+    background: var(--bark);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .about-img-accent strong {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .about-img-accent span {
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .about-content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .about-content p {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--muted);
+  }
+
+  .about-content p strong {
+    font-weight: 400;
+    color: var(--charcoal);
+  }
+
+  .about-values {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 1rem;
+  }
+
+  .value-item {
+    border-left: 2px solid var(--oak);
+    padding: 0.75rem 0 0.75rem 1rem;
+  }
+
+  .value-item strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.2rem;
+  }
+
+  .value-item span {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--muted);
+  }
+
+  /* ── GALLERY ── */
+  .gallery {
+    padding: 7rem 4rem;
+    background: var(--charcoal);
+  }
+
+  .gallery-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3rem;
+  }
+
+  .gallery-header .section-label { color: var(--oak); }
+  .gallery-header .section-label::before { background: var(--oak); }
+  .gallery-header h2 { color: var(--cream); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 200px;
+    gap: 3px;
+  }
+
+  .gallery-item {
+    position: relative; overflow: hidden;
+    background: #3D2E22;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+
+  .gallery-item:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .gallery-placeholder {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(196,168,130,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: rgba(42,33,24,0.6);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-overlay span {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    border: 1px solid rgba(245,240,232,0.4);
+    padding: 0.5rem 1rem;
+  }
+
+  /* ── PROCESS ── */
+  .process {
+    padding: 7rem 4rem;
+    background: var(--cream);
+  }
+
+  .process-header { margin-bottom: 4.5rem; }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem; left: 2rem; right: 2rem;
+    height: 1px;
+    background: linear-gradient(to right, var(--oak), transparent 90%);
+    opacity: 0.4;
+  }
+
+  .process-step {
+    padding: 0 2rem 0 0;
+    position: relative;
+  }
+
+  .step-num {
+    width: 4rem; height: 4rem;
+    border: 1px solid rgba(196,168,130,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    background: var(--cream);
+  }
+
+  .step-num::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 0.5px solid rgba(196,168,130,0.2);
+  }
+
+  .step-num span {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--oak-deep);
+  }
+
+  .process-step h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .process-step p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    padding: 7rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info h2 { margin-bottom: 1.5rem; }
+
+  .contact-info p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .contact-item strong {
+    font-weight: 400;
+    color: var(--charcoal);
+    min-width: 80px;
+  }
+
+  .contact-form {
+    display: flex; flex-direction: column; gap: 1.25rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-group label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--oak-deep);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    background: var(--warm-white);
+    border: 1px solid rgba(196,168,130,0.3);
+    padding: 0.9rem 1rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--oak);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--bark);
+    border: none;
+    padding: 1.1rem 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+  }
+
+  .form-submit:hover { background: var(--charcoal); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(196,168,130,0.15);
+  }
+
+  footer p {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(245,240,232,0.35);
+  }
+
+  footer .footer-brand {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(245,240,232,0.5);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.7s ease both 0.1s; }
+  h1 { animation: fadeUp 0.8s ease both 0.25s; }
+  .hero-sub { animation: fadeUp 0.7s ease both 0.4s; }
+  .hero-actions { animation: fadeUp 0.7s ease both 0.55s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1rem 2rem; }
+    nav ul { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { min-height: 340px; }
+    .hero-left { padding: 4rem 2rem; }
+    .products { padding: 4rem 2rem; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .about { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    .gallery { padding: 4rem 2rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: auto; }
+    .process { padding: 4rem 2rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-mark"><span>D&M</span></div>
+    <div class="logo-text">
+      <strong>D&amp;M Masiv</strong>
+      <small>Stolarija po meri</small>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#proizvodi">Proizvodi</a></li>
+    <li><a href="#o-nama">O nama</a></li>
+    <li><a href="#galerija">Galerija</a></li>
+    <li><a href="#proces">Proces</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Zatraži ponudu</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Ručna izrada · Masivno drvo · Beograd</div>
+    <h1>Prirodni materijali,<br><em>trajnost i lepota</em></h1>
+    <p class="hero-sub">
+      Svaki komad koji napusti našu radionicu nosi u sebi godine znanja, poštovanje prema drvetu i predanost zanatskom savršenstvu.
+    </p>
+    <div class="hero-actions">
+      <a href="#galerija" class="btn-primary">Pogledaj radove</a>
+      <a href="#kontakt" class="btn-ghost">Zatraži ponudu →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <div class="wood-icon"></div>
+      <p>Fotografija prostora</p>
+    </div>
+    <div class="hero-badge">
+      <strong>15+</strong>
+      <span>godina iskustva u zanatu</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="proizvodi" class="products">
+  <div class="products-header">
+    <div>
+      <div class="section-label">Naši proizvodi</div>
+      <h2>Sve od <em>jednog drveta</em></h2>
+    </div>
+    <a href="#kontakt" class="btn-ghost">Prilagodimo za vas →</a>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-icon">⌂</div>
+        <div class="product-tag">Kuhinja</div>
+      </div>
+      <div class="product-info">
+        <h3>Kuhinjski elementi i ormari</h3>
+        <p>Moduli precizno prilagođeni vašem prostoru — od drveta koje traje generacijama.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #BBA574 0%, #8B6543 100%);">
+        <div class="product-img-icon">╱</div>
+        <div class="product-tag">Stepeništa</div>
+      </div>
+      <div class="product-info">
+        <h3>Stepeništa po meri</h3>
+        <p>Masivna drvena stepeništa koja postaju arhitektonski detalj vašeg doma.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #A8926C 0%, #6B5037 100%);">
+        <div class="product-img-icon">⊞</div>
+        <div class="product-tag">Eksterijeri</div>
+      </div>
+      <div class="product-info">
+        <h3>Letnjikovci i terase</h3>
+        <p>Drvene konstrukcije otporne na vremenske uslove — estetika i funkcionalnost u jednom.</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img" style="background: linear-gradient(135deg, #D4BF9C 0%, #A88860 100%);">
+        <div class="product-img-icon">─</div>
+        <div class="product-tag">Stolarski detalji</div>
+      </div>
+      <div class="product-info">
+        <h3>Kuhinjske daske i klupe</h3>
+        <p>Ručno rađene daske za rezanje, klupe i mali predmeti koji krase svaki dom.</p>
+      </div>
+    </div>
+
+    <div class="product-card" style="grid-column: span 2;">
+      <div class="product-img" style="height: 180px; background: linear-gradient(135deg, #C4A882 0%, #7A5C38 100%);">
+        <div class="product-img-icon" style="font-size: 2.5rem;">▭▭</div>
+        <div class="product-tag">Stolovi i sedenje</div>
+      </div>
+      <div class="product-info">
+        <h3>Stolovi po meri</h3>
+        <p>Trpezarijski i kancelarijski stolovi od punog drveta — svaki jedinstven, svaki za ceo život.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="o-nama" class="about">
+  <div class="about-visual">
+    <div class="about-img-main">
+      <div style="text-align:center; color: rgba(245,240,232,0.2);">
+        <div style="font-family: var(--serif); font-size: 4rem; font-style: italic; line-height:1;">D&M</div>
+        <div style="font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 0.5rem;">Fotografija radionice</div>
+      </div>
+    </div>
+    <div class="about-img-accent">
+      <strong>100%</strong>
+      <span>masivno<br>drvo</span>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-label">O nama</div>
+    <h2>Zanat koji se<br><em>prenosi s kolena na koleno</em></h2>
+    <p>
+      <strong>D&M Masiv</strong> osnovali su <strong>Dušan Ilić</strong> i <strong>Marko Radojević</strong> — dvojica majstora koje spaja ista strast prema drvetu i preciznoj ručnoj izradi. Više od petnaest godina zajedno stvaraju komade koji spajaju tradiciju zanata sa modernim senzibilitetom.
+    </p>
+    <p>
+      Svaki projekat počinjemo razgovorom — razumemo vaš prostor, vaš stil i vaše potrebe. Koristimo isključivo <strong>masivno drvo</strong> pažljivo odabrano od proverenih dobavljača, jer verujemo da materijal određuje trajnost i karakter svakog komada.
+    </p>
+    <div class="about-values">
+      <div class="value-item">
+        <strong>Ručna izrada</strong>
+        <span>Svaki spoj je ručno rađen po staroj zanatskoj tradiciji</span>
+      </div>
+      <div class="value-item">
+        <strong>Trajnost</strong>
+        <span>Komadi koji opstaju i postaju porodični nasleđi</span>
+      </div>
+      <div class="value-item">
+        <strong>Prilagodljivost</strong>
+        <span>Svaki projekat je jedinstven i rađen po vašoj meri</span>
+      </div>
+      <div class="value-item">
+        <strong>Prirodni materijali</strong>
+        <span>Samo odabrano drvo bez kompromisa u kvalitetu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galerija" class="gallery">
+  <div class="gallery-header">
+    <div>
+      <div class="section-label">Galerija radova</div>
+      <h2>Naši <em>gotovi projekti</em></h2>
+    </div>
+    <a href="#kontakt" class="btn-ghost" style="color: var(--oak);">Pokrenite vaš projekat →</a>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item" style="background: #3A2A1C;">
+      <div class="gallery-placeholder">Kuhinja · 2024</div>
+      <div class="gallery-overlay"><span>Pogledaj projekat</span></div>
+    </div>
+    <div class="gallery-item" style="background: #4A3520;">
+      <div class="gallery-placeholder">Stepenište</div>
+      <div class="gallery-overlay"><span>Pogledaj</span></div>
+    </div>
+    <div class="gallery-item" style="background: #2E2010;">
+      <div class="gallery-placeholder">Letnjikovac</div>
+      <div class="gallery-overlay"><span>Pogledaj</span></div>
+    </div>
+    <div class="gallery-item" style="background: #5A3E28;">
+      <div class="gallery-placeholder">Sto po meri</div>
+      <div class="gallery-overlay"><span>Pogledaj</span></div>
+    </div>
+    <div class="gallery-item" style="background: #3D2918;">
+      <div class="gallery-placeholder">Ormar</div>
+      <div class="gallery-overlay"><span>Pogledaj</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="proces" class="process">
+  <div class="process-header">
+    <div class="section-label">Kako radimo</div>
+    <h2>Vaš projekat,<br><em>korak po korak</em></h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num"><span>01</span></div>
+      <h3>Konsultacija</h3>
+      <p>Razgovaramo o vašim idejama, prostoru i potrebama. Zajedno definišemo viziju i materijale koji odgovaraju vašem domu.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>02</span></div>
+      <h3>Projektovanje</h3>
+      <p>Naš tim izrađuje tehničke crteže i vizualizacije. Svaki detalj se usaglašava pre nego što drvo dotakne alat.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>03</span></div>
+      <h3>Izrada</h3>
+      <p>Ručna obrada masivnog drveta u našoj radionici. Svaki spoj, svaka ivica — pažljivo i precizno rađeni.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>04</span></div>
+      <h3>Montaža</h3>
+      <p>Profesionalna ugradnja sa završnom kontrolom kvaliteta. Ne odlazimo dok se vi ne uverite da je sve savršeno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="contact">
+  <div class="contact-info">
+    <div class="section-label">Kontakt</div>
+    <h2>Razgovarajmo o<br><em>vašem projektu</em></h2>
+    <p>
+      Svaki veliki komad počinje jednim razgovorom. Pišite nam ili nazovite — odgovaramo u roku od 24 sata i rado dolazimo na uviđaj prostora.
+    </p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <strong>Telefon</strong>
+        <span>+381 (0)XX XXX XXXX</span>
+      </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <span>info@dmmasiv.rs</span>
+      </div>
+      <div class="contact-item">
+        <strong>Lokacija</strong>
+        <span>Beograd, Srbija</span>
+      </div>
+      <div class="contact-item">
+        <strong>Radno vreme</strong>
+        <span>Pon–Pet: 08:00–17:00</span>
+      </div>
+    </div>
+  </div>
+
+  <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ime i prezime</label>
+        <input type="text" placeholder="Marko Petrović">
+      </div>
+      <div class="form-group">
+        <label>Telefon</label>
+        <input type="tel" placeholder="+381 6X XXX XXXX">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email adresa</label>
+      <input type="email" placeholder="vasa@email.com">
+    </div>
+    <div class="form-group">
+      <label>Vrsta projekta</label>
+      <select>
+        <option value="">Izaberite tip projekta</option>
+        <option>Kuhinjski elementi i ormari</option>
+        <option>Stepenište</option>
+        <option>Letnjikovac ili terasa</option>
+        <option>Stolovi i sedenje</option>
+        <option>Kuhinjske daske i klupe</option>
+        <option>Ostalo</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Poruka</label>
+      <textarea placeholder="Opišite vaš prostor i ideje. Što više detalja, to bolja ponuda..."></textarea>
+    </div>
+    <button type="submit" class="form-submit">Pošalji upit</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">D&amp;M Masiv</div>
+  <p>© 2025 D&M Masiv · Sve pravice zadržane</p>
+  <p>Stolarija po meri · Beograd, Srbija</p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Poruka poslata ✓';
+  btn.style.background = '#3A6B3A';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Pošalji upit';
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 3500);
+}
+
+// Subtle nav shrink on scroll
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 60) {
+    nav.style.padding = '0.75rem 4rem';
+  } else {
+    nav.style.padding = '1.25rem 4rem';
+  }
+});
+</script>
+
+</body>
+</html>

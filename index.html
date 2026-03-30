@@ -875,17 +875,6 @@
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-img" style="background:#1a1008;">
-        <img src="photos/IMG_8422.JPG" alt="Drvena kuća" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-        <div class="product-tag">Za decu</div>
-      </div>
-      <div class="product-info">
-        <h3>Dečije kućice i tobogani</h3>
-        <p>Sigurne i trajne drvene kućice i tobogani — dečiji san izrađen rukama majstora.</p>
-      </div>
-    </div>
-
     <div class="product-card" style="grid-column: span 2;">
       <div class="product-img" style="height: 180px; background:#1a1008;">
         <img src="photos/IMG_8437.JPG" alt="Stolovi po meri" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
@@ -927,7 +916,7 @@
       </div>
       <div class="value-item">
         <strong>Trajnost</strong>
-        <span>Komadi koji opstaju i postaju porodični nasleđi</span>
+        <span>Komadi koji ostaju i postaju porodično nasleđe</span>
       </div>
       <div class="value-item">
         <strong>Prilagodljivost</strong>
@@ -1089,4 +1078,41 @@ function handleSubmit(e) {
 }
 
 // Subtle nav shrink on scroll
-window.addEventL
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 60) {
+    nav.style.padding = '0.75rem 4rem';
+  } else {
+    nav.style.padding = '1.25rem 4rem';
+  }
+});
+
+// Lightbox
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+lightbox.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;cursor:zoom-out;';
+lightbox.innerHTML = '<img id="lightbox-img" style="max-width:92vw;max-height:92vh;object-fit:contain;display:block;">';
+document.body.appendChild(lightbox);
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = '';
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { lightbox.style.display = 'none'; document.body.style.overflow = ''; }
+});
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.style.cursor = 'zoom-in';
+  item.addEventListener('click', () => {
+    const img = item.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightbox-img').src = img.src;
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+});
+</script>
+</body>
+</html>

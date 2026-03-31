@@ -805,7 +805,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Ručna izrada · Masivno drvo · Beograd</div>
+    <div class="hero-eyebrow">Ručna izrada · Masivno drvo · Mladenovac</div>
     <h1>Prirodni materijali,<br><em>trajnost i lepota</em></h1>
     <p class="hero-sub">
       Svaki komad koji napusti našu radionicu nosi u sebi godine znanja, poštovanje prema drvetu i predanost zanatskom savršenstvu.
@@ -1020,36 +1020,37 @@
     </div>
   </div>
 
-  <form class="contact-form" onsubmit="handleSubmit(event)">
+  <form class="contact-form" action="https://formspree.io/f/mdapzkwq" method="POST">
     <div class="form-row">
       <div class="form-group">
         <label>Ime i prezime</label>
-        <input type="text" placeholder="Marko Petrović">
+        <input type="text" name="ime" placeholder="Marko Petrović">
       </div>
       <div class="form-group">
         <label>Telefon</label>
-        <input type="tel" placeholder="+381 6X XXX XXXX">
+        <input type="tel" name="telefon" placeholder="+381 6X XXX XXXX">
       </div>
     </div>
     <div class="form-group">
       <label>Email adresa</label>
-      <input type="email" placeholder="vasa@email.com">
+      <input type="email" name="email" required placeholder="vasa@email.com">
     </div>
     <div class="form-group">
       <label>Vrsta projekta</label>
-      <select>
+      <select name="projekat">
         <option value="">Izaberite tip projekta</option>
         <option>Kuhinjski elementi i ormari</option>
         <option>Stepenište</option>
         <option>Letnjikovac ili terasa</option>
         <option>Stolovi i sedenje</option>
         <option>Kuhinjske daske i klupe</option>
+        <option>Dečije kućice i tobogani</option>
         <option>Ostalo</option>
       </select>
     </div>
     <div class="form-group">
       <label>Poruka</label>
-      <textarea placeholder="Opišite vaš prostor i ideje. Što više detalja, to bolja ponuda..."></textarea>
+      <textarea name="poruka" placeholder="Opišite vaš prostor i ideje. Što više detalja, to bolja ponuda..."></textarea>
     </div>
     <button type="submit" class="form-submit">Pošalji upit</button>
   </form>
@@ -1058,24 +1059,12 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">D&amp;M Masiv</div>
-  <p>© 2025 D&M Masiv · Sve pravice zadržane</p>
+  <p>© 2026 D&M Masiv · Sva prava zadržana</p>
   <p>Stolarija po meri · Mladenovac, Srbija</p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Poruka poslata ✓';
-  btn.style.background = '#3A6B3A';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Pošalji upit';
-    btn.style.background = '';
-    btn.disabled = false;
-    e.target.reset();
-  }, 3500);
-}
+
 
 // Subtle nav shrink on scroll
 window.addEventListener('scroll', () => {

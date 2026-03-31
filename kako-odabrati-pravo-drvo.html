@@ -96,11 +96,11 @@
 
   /* LAYOUT */
   .page-wrap {
-    max-width: 1100px; margin: 0 auto;
-    padding: 8rem 2rem 5rem;
+    max-width: 960px; margin: 0 auto;
+    padding: 6rem 2rem 4rem;
     display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 5rem;
+    grid-template-columns: 1fr 260px;
+    gap: 3.5rem;
     align-items: start;
   }
 
@@ -110,15 +110,15 @@
   .breadcrumb {
     display: flex; gap: 0.5rem; align-items: center;
     font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 2rem;
+    color: var(--muted); margin-bottom: 1.25rem;
   }
   .breadcrumb a { color: var(--muted); text-decoration: none; }
   .breadcrumb a:hover { color: var(--oak-deep); }
   .breadcrumb span { opacity: 0.4; }
 
   .article-meta {
-    display: flex; align-items: center; gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
   }
   .meta-tag {
     font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em;
@@ -130,15 +130,15 @@
 
   h1.article-title {
     font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 300; line-height: 1.1;
     color: var(--charcoal); margin-bottom: 1.25rem;
   }
   h1.article-title em { font-style: italic; color: var(--oak-deep); }
 
   .article-lead {
-    font-size: 1.1rem; font-weight: 300; line-height: 1.8;
-    color: var(--muted); margin-bottom: 2.5rem;
+    font-size: 0.95rem; font-weight: 300; line-height: 1.75;
+    color: var(--muted); margin-bottom: 1.75rem;
     border-left: 3px solid var(--oak);
     padding-left: 1.25rem;
   }
@@ -148,7 +148,7 @@
     background: var(--cream);
     border: 1px solid rgba(196,168,130,0.25);
     padding: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   .toc-title {
     font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
@@ -163,7 +163,7 @@
 
   /* HERO IMAGE */
   .article-hero {
-    width: 100%; aspect-ratio: 16/9; object-fit: cover;
+    width: 100%; height: 340px; object-fit: cover;
     margin-bottom: 0.75rem;
   }
   .img-caption {
@@ -175,21 +175,21 @@
   /* CONTENT */
   .content h2 {
     font-family: var(--serif);
-    font-size: 1.75rem; font-weight: 400;
-    color: var(--charcoal); margin: 2.5rem 0 1rem;
+    font-size: 1.35rem; font-weight: 400;
+    color: var(--charcoal); margin: 2rem 0 0.75rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid rgba(196,168,130,0.25);
   }
 
   .content h3 {
     font-family: var(--serif);
-    font-size: 1.3rem; font-weight: 400;
-    color: var(--charcoal); margin: 1.75rem 0 0.75rem;
+    font-size: 1.1rem; font-weight: 400;
+    color: var(--charcoal); margin: 1.25rem 0 0.6rem;
   }
 
   .content p {
-    font-size: 0.97rem; line-height: 1.85;
-    color: #3D3222; margin-bottom: 1.2rem;
+    font-size: 0.88rem; line-height: 1.75;
+    color: #3D3222; margin-bottom: 1rem;
   }
 
   .content a { color: var(--oak-deep); text-decoration: underline; text-underline-offset: 3px; }
@@ -224,20 +224,20 @@
 
   /* CALLOUT BOX */
   .callout {
-    background: var(--cream); border-left: 4px solid var(--oak-deep);
-    padding: 1.25rem 1.5rem; margin: 2rem 0;
+    background: var(--cream); border-left: 3px solid var(--oak-deep);
+    padding: 0.9rem 1.1rem; margin: 1.25rem 0;
   }
   .callout-label {
     font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--oak-deep); margin-bottom: 0.5rem;
   }
-  .callout p { margin: 0; font-size: 0.92rem; color: var(--charcoal); }
+  .callout p { margin: 0; font-size: 0.83rem; color: var(--charcoal); }
 
   /* WOOD CARDS */
-  .wood-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
+  .wood-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1.25rem 0; }
   .wood-card {
     border: 1px solid rgba(196,168,130,0.25);
-    padding: 1.25rem;
+    padding: 0.9rem;
     background: var(--warm-white);
   }
   .wood-card-name {
@@ -248,17 +248,17 @@
     font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: var(--oak); margin-bottom: 0.75rem;
   }
-  .wood-card p { font-size: 0.85rem; line-height: 1.65; color: var(--muted); margin: 0; }
+  .wood-card p { font-size: 0.8rem; line-height: 1.55; color: var(--muted); margin: 0; }
 
   /* INLINE IMAGE */
   .content-img {
-    width: 100%; object-fit: cover; margin: 1.5rem 0 0.5rem;
+    width: 100%; height: 280px; object-fit: cover; margin: 1.25rem 0 0.4rem;
   }
 
   /* CTA BANNER */
   .cta-banner {
-    background: var(--bark); padding: 2rem;
-    margin: 3rem 0; text-align: center;
+    background: var(--bark); padding: 1.5rem;
+    margin: 2rem 0; text-align: center;
   }
   .cta-banner h3 {
     font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
@@ -280,7 +280,7 @@
 
   .sidebar-card {
     border: 1px solid rgba(196,168,130,0.25);
-    padding: 1.5rem; margin-bottom: 1.5rem;
+    padding: 1.1rem; margin-bottom: 1rem;
     background: var(--cream);
   }
   .sidebar-title {
@@ -291,7 +291,7 @@
   }
   .sidebar-title::before { content: ''; display: block; width: 16px; height: 1px; background: var(--oak-deep); }
 
-  .sidebar-card p { font-size: 0.85rem; line-height: 1.7; color: var(--muted); margin-bottom: 1rem; }
+  .sidebar-card p { font-size: 0.8rem; line-height: 1.6; color: var(--muted); margin-bottom: 0.75rem; }
   .sidebar-cta {
     display: block; text-align: center;
     font-family: var(--sans); font-size: 0.75rem; font-weight: 500;
@@ -323,7 +323,9 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .page-wrap { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 1.5rem 3rem; }
+    .page-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 5rem 1.25rem 2.5rem; }
+    .article-hero { height: 220px; }
+    .content-img { height: 200px; }
     aside { position: static; }
     .wood-cards { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
@@ -387,8 +389,8 @@
 
     <!-- Hero image -->
     <img
-      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop"
-      alt="Različite vrste masivnog drveta — hrastovina, orahovina, jasenovina"
+      src="https://images.unsplash.com/photo-1416879612866-dd43cb4040ac?w=1200&q=85&auto=format&fit=crop"
+      alt="Stolar radi sa masivnim drvetom — ručna izrada nameštaja"
       class="article-hero"
       width="900" height="506"
       loading="eager">
@@ -523,12 +525,12 @@
       </p>
 
       <img
-        src="https://images.unsplash.com/photo-1575908539614-ff89490f4a78?w=800&q=80&auto=format&fit=crop"
-        alt="Kuhinjska daska od masivnog drveta — bukva ili javor"
+        src="photos/IMG_8265.jpg"
+        alt="Kuhinjska daska od masivnog drveta — D&M Masiv ručna izrada"
         class="content-img"
         width="800" height="450"
         loading="lazy">
-      <p class="img-caption">Foto: Unsplash — kuhinjska daska od masivnog drveta</p>
+      <p class="img-caption">Foto: D&M Masiv — kuhinjska daska od masivnog drveta, ručna izrada</p>
 
       <!-- 8 JAVOR -->
       <h2 id="javor">8. Javor — čistoća i otpornost</h2>
